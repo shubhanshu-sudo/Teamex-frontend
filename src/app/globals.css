@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Teamex brand palette */
+    --background: 210 20% 98%; /* #F9FAFB */
+    --foreground: 0 0% 7%; /* near #111111 */
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 0 0% 7%;
+    --primary: 46 100% 48%; /* #F5B800 */
+    --primary-foreground: 0 0% 7%;
+    --secondary: 222 47% 11%; /* deep slate for subtle pills */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 46 100% 95%; /* soft Teamex yellow background */
+    --accent-foreground: 46 100% 25%;
+    --destructive: 0 84% 60%;
+    --border: 220 14% 90%; /* #e5e7eb */
+    --input: 220 14% 90%;
+    --ring: 46 100% 48%; /* primary ring in yellow */
+    --radius: 0.5rem;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+  }
+
+  .dark {
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 18%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 100% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
