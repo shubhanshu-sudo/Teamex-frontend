@@ -1,9 +1,8 @@
 import axios, { type AxiosInstance, type InternalAxiosRequestConfig } from 'axios';
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+import { API_BASE } from '@/lib/utils';
 
 const api: AxiosInstance = axios.create({
-  baseURL: `${API_BASE}/api`,
+  baseURL: API_BASE ? `${API_BASE}/api` : '/api',
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
 });
