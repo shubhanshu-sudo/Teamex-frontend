@@ -145,7 +145,10 @@ export default function NewActivityPage() {
               </div>
               <div className="space-y-2">
                 <Label>Intensity</Label>
-                <Select value={watch('intensity') || 'none'} onValueChange={(v) => setValue('intensity', v)}>
+                <Select
+                  value={watch('intensity') ?? 'none'}
+                  onValueChange={(v) => setValue('intensity', v as FormData['intensity'])}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>

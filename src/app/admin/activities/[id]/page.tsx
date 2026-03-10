@@ -72,7 +72,7 @@ export default function EditActivityPage() {
         setValue('category', typeof activity.category === 'object' ? activity.category?._id ?? '' : (activity.category || ''));
         setValue('duration', activity.duration || '');
         setValue('locationType', activity.locationType || '');
-        setValue('intensity', (activity.intensity as FormData['intensity']) || 'none');
+        setValue('intensity', (activity.intensity as FormData['intensity']) ?? 'none');
         setValue('status', (activity.status as FormData['status']) || 'draft');
         setValue('metaTitle', activity.metaTitle || '');
         setValue('metaDescription', activity.metaDescription || '');
@@ -166,7 +166,10 @@ export default function EditActivityPage() {
               </div>
               <div className="space-y-2">
                 <Label>Intensity</Label>
-                <Select value={watch('intensity') || 'none'} onValueChange={(v) => setValue('intensity', v)}>
+                <Select
+                  value={watch('intensity') ?? 'none'}
+                  onValueChange={(v) => setValue('intensity', v as FormData['intensity'])}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
