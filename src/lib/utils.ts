@@ -8,16 +8,12 @@ export function cn(...inputs: ClassValue[]) {
 /**
  * Base URL for the backend API.
  *
- * - In production (Vercel, etc.), you **must** set NEXT_PUBLIC_API_URL.
- * - In local development, if NEXT_PUBLIC_API_URL is missing, we fall back to http://localhost:5000.
+ * - You **must** set NEXT_PUBLIC_API_URL in all environments
+ *   (e.g. http(s)://your-backend-domain.com).
  */
 function resolveApiBase(): string {
   if (process.env.NEXT_PUBLIC_API_URL && process.env.NEXT_PUBLIC_API_URL.trim().length > 0) {
     return process.env.NEXT_PUBLIC_API_URL.trim().replace(/\/+$/, '');
-  }
-
-  if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-    return 'http://localhost:5000';
   }
 
   // In production without a configured API URL, fail loudly in console.
